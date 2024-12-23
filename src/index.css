@@ -17,3 +17,45 @@ body {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Custom Accordion  */
+.accordion {
+  color: black;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.accordion-item {
+  margin-bottom: 20px;
+}
+
+.accordion-item .content {
+  font-size: 14px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out 0.5s;
+}
+
+.accordion-item .content.open {
+  max-height: 500px;
+  opacity: 1;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+
+.accordion-icon {
+  display: flex;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+}
+
+.accordion-header {
+  display: flex;
+  padding: 8px;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-align: left;
+}
