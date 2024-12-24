@@ -20,6 +20,8 @@ const Homepage = () => {
                             ease: "easeInOut"
                         }}
                         className='xl:w-[75rem] lg:w-[60rem] w-full xl:px-0 px-6 h-full flex items-center justify-between lg:mt-40'>
+
+                        {/* Hero Section Start */}
                         <div className='flex flex-col items-start gap-6'>
                             <h1 className='xl:text-7xl text-6xl font-bold font-[MainFont]'>Organic <br /><span className='xl:text-[7.5rem] text-[7rem] font-[MainFont]'>Karnali</span></h1>
                             <p className='w-96 font-medium'>Experience the finest organic products straight from the pristine mountains of Karnali.</p>
@@ -42,13 +44,15 @@ const Homepage = () => {
                                 <img src={leaf} className='object-contain' alt="" />
                             </div>
                         </div>
+
+                        {/* Hero Section End  */}
                     </motion.div>
                 </div>
 
-                <div className='w-full min-h-screen flex items-center justify-center bg-gradient-to-t from-[#fff8f3] to-[#fefefe]'>
-                    <FeaturedProducts />
-                </div>
+                {/* Featured Products  */}
+                <FeaturedProducts />
 
+                {/* Testimonials  */}
                 <Testimonials />
             </div>
         </div >

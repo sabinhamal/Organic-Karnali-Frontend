@@ -73,7 +73,7 @@ const Testimonials = () => {
     ];
 
     return (
-        <div className='w-full flex items-center justify-center'>
+        <div className='w-full flex items-center justify-center bg-gradient-to-b from-[#fff8f3] to-[#fefefe]'>
             <div className='flex flex-col items-start justify-center gap-16 md:py-[7rem] xl:w-[75rem] lg:w-[60rem] w-full xl:px-0 px-6'>
                 <div className="flex flex-col items-start gap-1">
                     <p className="font-[mainFont] text-[0.9rem]">See for yourself</p>

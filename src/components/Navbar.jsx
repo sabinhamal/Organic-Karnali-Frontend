@@ -1,28 +1,41 @@
-import { Heart, Menu, Search, ShoppingCart, UserRound, X } from 'lucide-react'
-import React, { useState } from 'react'
+import { Heart, Search, ShoppingCart, UserRound, X } from 'lucide-react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from "framer-motion";
 import logo from "../assets/logo.png"
 import video from "../assets/Organic Karnali - Home.mp4"
 import Accordion from './Accordion';
+import UserModal from './UserModal';
 
 const Navbar = () => {
 
-    const navbarItems = [
-        'Home', 'About Us', 'Shop', 'Contact'
-    ]
-
+    //Toggle Modal
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const toggleModal = () => { setIsModalOpen(!isModalOpen); };
 
     //Count of favourite and cart items 
     const [favouriteCount, setFavouriteCount] = useState(0)
     const [cartCount, setCartCount] = useState(0)
 
-
     //Sidebar close & open
     const [toggleSidebar, setToggleSidebar] = useState(false);
 
+    //Disable scroll when sidebar is toggled
+    useEffect(() => {
+        if (toggleSidebar) {
+            document.body.style.overflow = "hidden"
+        } else {
+            document.body.style.overflow = "auto"
+        }
+
+        return () => {
+            document.body.style.overflow = "auto"
+        }
+    }, [toggleSidebar])
+
     return (
         <div className="flex items-center justify-center w-full">
+            <UserModal isOpen={isModalOpen} toggleModal={toggleModal} />
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 100, y: 0 }}
@@ -45,7 +58,7 @@ const Navbar = () => {
                 </div>
                 <div className='flex items-center justify-end md:gap-9 gap-4 w-1/3'>
                     <Search className="text-zinc-700 cursor-pointer md:w-[24px] w-[20px]" />
-                    <UserRound className="text-zinc-700 cursor-pointer md:w-[24px] w-[20px]" />
+                    <UserRound onClick={toggleModal} className="text-zinc-700 cursor-pointer md:w-[24px] w-[20px]" />
 
                     <div className="relative md:block hidden">
                         <Heart className="text-zinc-700 cursor-pointer w-[24px]" />
