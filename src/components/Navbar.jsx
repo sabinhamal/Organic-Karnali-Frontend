@@ -101,7 +101,9 @@ const Navbar = () => {
                     </div>
 
                     <div className='xl:w-3/4 md:w-[70%] w-full md:relative absolute z-[990] h-full'>
-                        <video src={video} autoPlay loop muted className='h-full w-full object-cover' />
+                        <video autoPlay loop muted playsinline className='h-full w-full object-cover' >
+                            <source src={video} type="video/mp4" />
+                        </video>
                     </div>
                 </div>
 
