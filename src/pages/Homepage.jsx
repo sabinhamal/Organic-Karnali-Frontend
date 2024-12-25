@@ -21,7 +21,7 @@ const Homepage = () => {
 
                         {/* Hero Section Start */}
                         <div className='flex flex-col items-start gap-6'>
-                            <h1 className='xl:text-7xl text-6xl font-bold font-[MainFont]'>Organic <br /><span className='xl:text-[7.5rem] text-[7rem] font-[MainFont]'>Karnali</span></h1>
+                            <h1 className='xl:text-7xl md:text-6xl text-5xl font-bold font-[MainFont]'>Organic <br /><span className='xl:text-[7.5rem] md:text-[7rem] text-7xl font-[MainFont]'>Karnali</span></h1>
                             <p className='w-96 font-medium'>Experience the finest organic products straight from the pristine mountains of Karnali.</p>
 
 
