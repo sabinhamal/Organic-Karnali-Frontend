@@ -5,13 +5,18 @@ import { motion } from "framer-motion";
 import logo from "../assets/logo.png"
 import video from "../assets/Organic Karnali - Home.mp4"
 import Accordion from './Accordion';
-import UserModal from './UserModal';
+import LoginModal from "./LoginModal"
+import SignupModal from './SignupModal';
+import { fadeInUp } from '../utils/animations';
 
 const Navbar = () => {
 
     //Toggle Modal
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const toggleModal = () => { setIsModalOpen(!isModalOpen); };
+    const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+    const toggleLoginModal = () => { setIsLoginModalOpen(!isLoginModalOpen) };
+
+    const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
+    const toggleSignupModal = () => { setIsSignupModalOpen(!isSignupModalOpen) };
 
     //Count of favourite and cart items 
     const [favouriteCount, setFavouriteCount] = useState(0)
@@ -35,14 +40,12 @@ const Navbar = () => {
 
     return (
         <div className="flex items-center justify-center w-full">
-            <UserModal isOpen={isModalOpen} toggleModal={toggleModal} />
+            <LoginModal isLoginModalOpen={isLoginModalOpen} toggleLoginModal={toggleLoginModal} openSignupModal={toggleSignupModal} />
+            <SignupModal isSignupModalOpen={isSignupModalOpen} toggleSignupModal={toggleSignupModal} openLoginModal={toggleLoginModal} />
             <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 100, y: 0 }}
-                transition={{
-                    duration: 0.8,
-                    ease: "easeInOut"
-                }}
+                initial={fadeInUp.initial}
+                animate={fadeInUp.animate}
+                transition={fadeInUp.transition}
                 className='absolute top-6 xl:w-[75rem] lg:w-[60rem] w-full xl:px-0 px-6 rounded-full border-zinc-300 flex items-center justify-between'>
 
                 <div className='flex items-center justify-start gap-4 w-1/3 cursor-pointer' onClick={() => setToggleSidebar(!toggleSidebar)}>
@@ -58,7 +61,7 @@ const Navbar = () => {
                 </div>
                 <div className='flex items-center justify-end md:gap-9 gap-4 w-1/3'>
                     <Search className="text-zinc-700 cursor-pointer md:w-[24px] w-[20px]" />
-                    <UserRound onClick={toggleModal} className="text-zinc-700 cursor-pointer md:w-[24px] w-[20px]" />
+                    <UserRound onClick={toggleLoginModal} className="text-zinc-700 cursor-pointer md:w-[24px] w-[20px]" />
 
                     <div className="relative md:block hidden">
                         <Heart className="text-zinc-700 cursor-pointer w-[24px]" />

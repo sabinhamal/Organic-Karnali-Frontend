@@ -31,8 +31,8 @@ const Accordion = () => {
         },
     ];
 
+    // Toggle open/close on the clicked section
     const handleToggle = (index) => {
-        // Toggle open/close on the clicked section
         setActiveIndex(activeIndex === index ? null : index);
     };
 
