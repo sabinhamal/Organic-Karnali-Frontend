@@ -1,13 +1,13 @@
 import React from 'react'
 import video from "../assets/Organic Karnali - Home.mp4"
-import Accordion from './Accordion';
+import SidebarAccordion from './SidebarAccordion';
 import { Link } from 'react-router-dom'
 import { X } from 'lucide-react';
 
 const Sidebar = ({ toggleSidebar, setToggleSidebar }) => {
 
     return (
-        <div className={`z-[999] ${toggleSidebar ? "-translate-x-0 visible" : "-translate-x-[100%] invisible"} duration-[1500ms] transition-all ease-in-out bg-zinc-900 min-h-screen w-screen fixed inset-0 flex`}>
+        <div className={`z-[999] ${toggleSidebar ? "-translate-x-0 visible" : "-translate-x-[100%] invisible"} duration-[800ms] transition-all ease-in-out bg-zinc-900 min-h-screen w-screen fixed inset-0 flex`}>
 
             {/* Sidebar Section */}
             <div className="bg-[#381f16] md:bg-opacity-100 bg-opacity-45 h-full xl:w-1/4 md:w-[30%] w-full flex flex-col items-start justify-between text-white z-[991] overflow-y-auto scrollbar-thin scrollbar-thumb-[#2f1c15] scrollbar-track-[#381f16]">
@@ -16,7 +16,7 @@ const Sidebar = ({ toggleSidebar, setToggleSidebar }) => {
                         <X size={'32px'} />
                         <h1 className="text-xl tracking-[0.2rem] uppercase">Menu</h1>
                     </div>
-                    <Accordion />
+                    <SidebarAccordion />
                 </div>
 
                 <div className='flex flex-col items-start gap-12 w-full border-[1px] border-t-[#c5c5c54a] border-l-0 border-r-0 border-b-0 md:p-16 p-6'>

@@ -20,7 +20,7 @@ const FeaturedProducts = () => {
 
     return (
         <div className='w-full min-h-screen flex items-center justify-center bg-gradient-to-t to-[#fff8f3] from-[#fefefe]'>
-            <div className="flex flex-col items-start gap-12 pb-[7rem] xl:w-[75rem] lg:w-[60rem] w-full xl:px-0 px-6">
+            <div className="flex flex-col items-start gap-12 xl:w-[75rem] lg:w-[60rem] w-full xl:px-0 px-6">
                 <motion.div
                     initial={fadeInDown.initial}
                     whileInView={fadeInDown.whileInView}

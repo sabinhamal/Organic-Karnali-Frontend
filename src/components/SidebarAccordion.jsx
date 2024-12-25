@@ -1,7 +1,7 @@
 import { ChevronDown } from 'lucide-react';
 import React, { useState } from 'react';
 
-const Accordion = () => {
+const SidebarAccordion = () => {
     const [activeIndex, setActiveIndex] = useState(null); // Track the active section
 
     const accordionData = [
@@ -67,4 +67,4 @@ const Accordion = () => {
     );
 };
 
-export default Accordion;
+export default SidebarAccordion;
