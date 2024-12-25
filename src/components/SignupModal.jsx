@@ -57,14 +57,14 @@ const SignupModal = ({ isSignupModalOpen, toggleSignupModal, openLoginModal }) =
                         initial="hidden"
                         animate="visible"
                         exit="exit"
-                        className="bg-[#37160b] text-white relative p-12 shadow-lg lg:w-[40rem] md:w-[35rem] w-[25rem] flex flex-col items-center justify-center gap-6"
+                        className="bg-[#37160b] text-white relative p-12 shadow-lg lg:w-[40rem] md:w-[35rem] w-[25rem] flex flex-col items-center justify-center md:gap-6 gap-3"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <X className="absolute top-6 right-6 cursor-pointer" onClick={toggleSignupModal} />
-                        <h2 className="text-2xl uppercase tracking-widest font-semibold mb-16">Signup</h2>
+                        <h2 className="text-2xl uppercase tracking-widest font-semibold md:mb-16 mb-4">Signup</h2>
 
                         {/* Input form  */}
-                        <form action="/" onSubmit={handleFormSubmit} className="w-full flex flex-col items-center gap-12">
+                        <form action="/" onSubmit={handleFormSubmit} className="w-full flex flex-col items-center md:gap-12 gap-9">
 
                             {/* First Name */}
                             <div className="relative w-full">
@@ -234,7 +234,7 @@ const SignupModal = ({ isSignupModalOpen, toggleSignupModal, openLoginModal }) =
                                 </motion.label>
                             </div>
 
-                            <button type="submit" className="mt-6 w-full py-4 bg-white text-zinc-600 hover:bg-zinc-200 transition-all tracking-widest">SIGN UP</button>
+                            <button type="submit" className="md:mt-6 w-full py-4 bg-white text-zinc-600 hover:bg-zinc-200 transition-all tracking-widest">SIGN UP</button>
                         </form>
 
                         {/* LogIn Button */}

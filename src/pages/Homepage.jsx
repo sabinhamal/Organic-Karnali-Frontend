@@ -12,7 +12,7 @@ const Homepage = () => {
         <div className='min-h-screen w-full flex items-start justify-center bg-[#fefefe]'>
             <div className='flex flex-col items-center w-full'>
 
-                <div className='w-full md:h-screen md:py-0 py-[7rem] flex items-center justify-center bg-gradient-to-b from-[#fff4eb] to-[#fefefe]'>
+                <div className='w-full md:h-screen md:py-0 py-[7rem] flex items-center justify-center bg-gradient-to-b from-[#fefefe] to-[#fff8f3] '>
                     <motion.div
                         initial={fadeInDown.initial}
                         animate={fadeInDown.animate}

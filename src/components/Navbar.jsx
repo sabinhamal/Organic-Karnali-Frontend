@@ -1,13 +1,11 @@
 import { Heart, Search, ShoppingCart, UserRound, X } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { motion } from "framer-motion";
 import logo from "../assets/logo.png"
-import video from "../assets/Organic Karnali - Home.mp4"
-import Accordion from './Accordion';
 import LoginModal from "./LoginModal"
 import SignupModal from './SignupModal';
 import { fadeInUp } from '../utils/animations';
+import Sidebar from './Sidebar';
 
 const Navbar = () => {
 
@@ -78,34 +76,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Sidebar  */}
-                <div className={`z-[999] ${toggleSidebar ? "-translate-x-0 visible" : "-translate-x-[100%] invisible"} duration-[1500ms] transition-all ease-in-out bg-zinc-900 min-h-screen w-screen fixed flex items-center justify-center inset-0`}>
-
-                    <div className='bg-[#381f16] md:bg-opacity-100 bg-opacity-45 h-full xl:w-1/4 md:w-[30%] w-full flex flex-col items-start justify-between text-white z-[991]'>
-
-                        <div className='flex flex-col items-start gap-12 w-full md:p-16 p-6'>
-                            <div className='flex items-center gap-4 cursor-pointer' onClick={() => setToggleSidebar(!toggleSidebar)}>
-                                <X size={'32px'} />
-                                <h1 className="text-xnpl tracking-[0.2rem] uppercase">Menu</h1>
-                            </div>
-
-                            <Accordion />
-                        </div>
-
-                        <div className='flex flex-col items-start gap-12 w-full border-[1px] border-t-[#c5c5c54a] border-l-0 border-r-0 border-b-0 md:p-16 p-6'>
-                            <div className="h-[1px] w-full"></div>
-                            <Link to={'/about'}>About</Link>
-                            <Link to={'/contact'}>Contact Us</Link>
-                            <Link to={'/login'}>Login</Link>
-                        </div>
-
-                    </div>
-
-                    <div className='xl:w-3/4 md:w-[70%] w-full md:relative absolute z-[990] h-full'>
-                        <video autoPlay loop muted playsinline className='h-full w-full object-cover' >
-                            <source src={video} type="video/mp4" />
-                        </video>
-                    </div>
-                </div>
+                <Sidebar toggleSidebar={toggleSidebar} setToggleSidebar={setToggleSidebar} />
 
             </motion.div >
         </div >
