@@ -43,7 +43,6 @@ body {
   transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-
 .accordion-icon {
   display: flex;
   align-items: center;
@@ -52,7 +51,6 @@ body {
 
 .accordion-header {
   display: flex;
-  padding: 8px;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;

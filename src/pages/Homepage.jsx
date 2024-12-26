@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { ChevronRight, Heart } from 'lucide-react'
-import heroImage from "../assets/hero-image.png"
-import leaf from "../assets/leaf.png"
 import { motion } from 'framer-motion'
-import FeaturedProducts from '../components/FeaturedProducts'
-import Testimonials from '../components/Testimonials.jsx'
 import { fadeInDown } from '../utils/animations.js'
-import HomepageAccordion from '../components/HomepageAccordion.jsx'
+import heroImage from "../assets/hero-image.png"
 import bee from "../assets/bee.png"
+import leaf from "../assets/leaf.png"
 import plant from "../assets/plant.png"
+
+const FeaturedProducts = React.lazy(() => import('../components/FeaturedProducts'));
+const HomepageAccordion = React.lazy(() => import('../components/HomepageAccordion.jsx'));
+const Testimonials = React.lazy(() => import('../components/Testimonials.jsx'));
+const Features = React.lazy(() => import('../components/Features.jsx'));
 
 const Homepage = () => {
     const roundedText = "100% Raw Goods - 100% Raw Goods - ";
@@ -47,23 +49,23 @@ const Homepage = () => {
 
                         {/* Hero Section Start */}
                         <div className='flex flex-col lg:items-start items-center lg:w-auto w-full gap-7'>
-                            <h1 className='xl:text-7xl text-6xl lg:text-left text-center lg:-ml-0 -ml-14 font-medium bg-gradient-to-b bg-clip-text text-transparent from-green-500 to-green-800 relative'>
+                            <h1 className='xl:text-7xl md:text-6xl text-5xl lg:text-left text-center lg:-ml-0 -ml-14 font-medium bg-gradient-to-b bg-clip-text text-transparent from-green-500 to-green-800 relative'>
                                 Organic
-                                <img src={plant} className='w-16 absolute lg:top-0 -top-2 lg:right-20 right-10' alt="" />
+                                <img src={plant} className='md:w-16 w-12 absolute lg:top-0 md:-top-2 -top-1 lg:right-20 md:right-10 right-7' alt="" />
                                 <br />
-                                <span className='xl:text-[7.5rem] text-[7rem] lg:-ml-0 ml-14 bg-gradient-to-br bg-clip-text text-transparent from-green-700 to-green-500 tracking-wide font-semibold'>Karnali</span>
+                                <span className='xl:text-[7.5rem] md:text-[7rem] text-[5rem] lg:-ml-0 ml-14 bg-gradient-to-br bg-clip-text text-transparent from-green-700 to-green-500 tracking-wide font-semibold'>Karnali</span>
                             </h1>
                             <p className='w-96 md:font-medium font-normal lg:text-left text-center'>Experience the finest organic products straight from the pristine mountains of Karnali.</p>
 
                             <div className='flex items-center gap-5'>
-                                <div className="cursor-pointer bg-zinc-900 text-white flex items-center justify-center gap-5 px-6 py-3
+                                <div className="cursor-pointer bg-zinc-900 text-white flex items-center justify-center md:gap-5 gap-4 md:px-6 px-4 md:py-3 py-2.5
                                 text-[1rem] font-medium rounded-full shadow-sm shadow-black active:scale-95 active:shadow-lg transition-all duration-200 group">
                                     <h1>Shop Now</h1>
                                     <div className='bg-white text-black rounded-full p-1 translate-x-0 group-active:-translate-x-[0.15rem] transition-all duration-200'>
                                         <ChevronRight />
                                     </div>
                                 </div>
-                                <div className='p-4 bg-white rounded-full shadow-lg'><Heart fill='#ac9d96' color='#ac9d96' /></div>
+                                <div className='md:p-4 p-3 bg-white rounded-full shadow-lg'><Heart fill='#ac9d96' color='#ac9d96' /></div>
                             </div>
                         </div>
 
@@ -79,13 +81,25 @@ const Homepage = () => {
                 </div>
 
                 {/* Featured Products  */}
-                <FeaturedProducts />
+                <Suspense fallback={<div className='w-full'>Loading...</div>} >
+                    <FeaturedProducts />
+                </Suspense>
 
-                {/* Testimonials  */}
-                <Testimonials />
+                {/* Features  */}
+                <Suspense fallback={<div className='w-full'>Loading...</div>} >
+                    <Features />
+                </Suspense>
 
                 {/* Accordion  */}
-                <HomepageAccordion />
+                <Suspense fallback={<div className='w-full'>Loading...</div>} >
+                    <HomepageAccordion />
+                </Suspense>
+
+                {/* Testimonials  */}
+                <Suspense fallback={<div className='w-full'>Loading...</div>} >
+                    <Testimonials />
+                </Suspense>
+
             </div >
         </div >
     )

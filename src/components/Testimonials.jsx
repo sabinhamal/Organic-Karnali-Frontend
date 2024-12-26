@@ -77,17 +77,6 @@ const Testimonials = () => {
     return (
         <div className='w-full flex items-center justify-center bg-gradient-to-b to-[#fff8f3] from-[#fefefe]'>
             <div className='flex flex-col items-start justify-center gap-16 md:py-[7rem] xl:w-[75rem] lg:w-[60rem] w-full xl:px-0 px-6'>
-                <motion.div
-                    initial={fadeInUp.initial}
-                    whileInView={fadeInUp.whileInView}
-                    viewport={fadeInUp.viewport}
-                    transition={fadeInUp.transition}
-                    className="flex flex-col items-start gap-1">
-                    <p className="font-[mainFont] text-[0.9rem]">See for yourself</p>
-                    <h1 className="font-[mainFont] md:text-6xl text-4xl font-medium bg-gradient-to-tl from-zinc-900 to-zinc-600 bg-clip-text text-transparent">
-                        What our customers say
-                    </h1>
-                </motion.div>
 
                 <Marquee pauseOnHover className='w-full' gradientColor='white' gradient direction='right'>
 
