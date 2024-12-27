@@ -6,8 +6,12 @@ import LoginModal from "./LoginModal"
 import SignupModal from './SignupModal';
 import { fadeInUp } from '../utils/animations';
 import Sidebar from './Sidebar';
+import SearchModal from './SearchModal';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
+
+    const location = useLocation();
 
     //Toggle Modal
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -15,6 +19,9 @@ const Navbar = () => {
 
     const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
     const toggleSignupModal = () => { setIsSignupModalOpen(!isSignupModalOpen) };
+
+    const [isSearchOpen, setIsSearchOpen] = useState(false)
+    const toggleSearch = () => { setIsSearchOpen(!isSearchOpen) }
 
     //Count of favourite and cart items 
     const [favouriteCount, setFavouriteCount] = useState(0)
@@ -25,21 +32,19 @@ const Navbar = () => {
 
     //Disable scroll when sidebar is toggled
     useEffect(() => {
-        if (toggleSidebar) {
-            document.body.style.overflow = "hidden"
-        } else {
-            document.body.style.overflow = "auto"
-        }
-
-        return () => {
-            document.body.style.overflow = "auto"
-        }
+        document.body.style.overflow = toggleSidebar ? "hidden" : "auto";
     }, [toggleSidebar])
+
+    //Disable sidebar everytime new route is opened
+    useEffect(() => {
+        setToggleSidebar(false);
+    }, [location])
 
     return (
         <div className="flex items-center justify-center w-full">
             <LoginModal isLoginModalOpen={isLoginModalOpen} toggleLoginModal={toggleLoginModal} openSignupModal={toggleSignupModal} />
             <SignupModal isSignupModalOpen={isSignupModalOpen} toggleSignupModal={toggleSignupModal} openLoginModal={toggleLoginModal} />
+            <SearchModal isSearchOpen={isSearchOpen} toggleSearch={toggleSearch} />
             <motion.div
                 initial={fadeInUp.initial}
                 animate={fadeInUp.animate}
@@ -55,10 +60,10 @@ const Navbar = () => {
                     <h1 className="text-lg md:block hidden">Menu</h1>
                 </div>
                 <div className='w-1/3 flex items-center justify-center'>
-                    <img src={logo} className='md:w-44 w-20 brightness-75' alt="" />
+                    <Link to={'/'}><img src={logo} className='cursor-pointer md:w-44 w-20 brightness-75' alt="" /></Link>
                 </div>
                 <div className='flex items-center justify-end md:gap-9 gap-4 w-1/3'>
-                    <Search className="text-zinc-700 cursor-pointer md:w-[24px] w-[20px]" />
+                    <Search onClick={toggleSearch} className="text-zinc-700 cursor-pointer md:w-[24px] w-[20px]" />
                     <UserRound onClick={toggleLoginModal} className="text-zinc-700 cursor-pointer md:w-[24px] w-[20px]" />
 
                     <div className="relative md:block hidden">

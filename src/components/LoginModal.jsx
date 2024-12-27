@@ -26,14 +26,7 @@ const LoginModal = ({ isLoginModalOpen, toggleLoginModal, openSignupModal }) => 
 
     //Disable scroll when modal is open
     useEffect(() => {
-        if (isLoginModalOpen) {
-            document.body.style.overflow = "hidden"; // Disable scroll
-        } else {
-            document.body.style.overflow = "auto"; // Re-enable scroll
-        }
-        return () => {
-            document.body.style.overflow = "auto";
-        };
+        document.body.style.overflow = isLoginModalOpen ? "hidden" : "auto";
     }, [isLoginModalOpen]);
 
     return (
