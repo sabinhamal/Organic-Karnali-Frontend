@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'
 
 const Features = () => {
     return (
-        <div className="flex items-center justify-center md:my-[5rem] my-12 w-full">
+        <div className="flex items-center justify-center md:my-[5rem] w-full">
             <div className="flex items-center xl:flex-row flex-col justify-center xl:justify-between gap-9 lg:w-[80rem] w-full md:px-0 px-6">
 
                 <motion.div
