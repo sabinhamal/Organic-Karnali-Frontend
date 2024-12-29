@@ -6,6 +6,7 @@ import heroImage from "../assets/hero-image.png"
 import bee from "../assets/bee.png"
 import leaf from "../assets/leaf.png"
 import plant from "../assets/plant.png"
+import Footer from '../components/Footer.jsx'
 
 const FeaturedProducts = React.lazy(() => import('../components/FeaturedProducts'));
 const HomepageAccordion = React.lazy(() => import('../components/HomepageAccordion.jsx'));
@@ -99,6 +100,8 @@ const Homepage = () => {
                 <Suspense fallback={<div className='w-full'>Loading...</div>} >
                     <Testimonials />
                 </Suspense>
+                
+                <Footer />
 
             </div >
         </div >
