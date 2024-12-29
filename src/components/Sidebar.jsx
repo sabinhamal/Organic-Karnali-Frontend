@@ -12,9 +12,9 @@ const Sidebar = ({ toggleSidebar, setToggleSidebar }) => {
             {/* Sidebar Section */}
             <div className="bg-[#381f16] md:bg-opacity-100 bg-opacity-45 h-full xl:w-1/4 md:w-[30%] w-full flex flex-col items-start justify-between text-white z-[991] overflow-y-auto scrollbar-thin scrollbar-thumb-[#2f1c15] scrollbar-track-[#381f16]">
                 <div className='flex flex-col items-start gap-12 w-full md:p-16 p-6'>
-                    <div className='flex items-center gap-4 cursor-pointer' onClick={() => setToggleSidebar(!toggleSidebar)}>
-                        <X size={'32px'} />
-                        <h1 className="text-xl tracking-[0.2rem] uppercase">Menu</h1>
+                    <div className='flex items-center md:gap-4 gap-2 cursor-pointer' onClick={() => setToggleSidebar(!toggleSidebar)}>
+                        <X className='md:size-[32px] size-[22px]' />
+                        <h1 className="md:text-xl tracking-[0.2rem] uppercase">Menu</h1>
                     </div>
                     <SidebarAccordion />
                 </div>

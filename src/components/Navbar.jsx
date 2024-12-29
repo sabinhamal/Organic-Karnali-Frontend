@@ -60,7 +60,7 @@ const Navbar = () => {
                     <h1 className="text-lg md:block hidden">Menu</h1>
                 </div>
                 <div className='w-1/3 flex items-center justify-center'>
-                    <Link to={'/'}><img src={logo} className='cursor-pointer md:w-44 w-20 brightness-75' alt="" /></Link>
+                    <Link to={'/'}><img src={logo} className='cursor-pointer md:w-44 w-32 brightness-75' alt="" /></Link>
                 </div>
                 <div className='flex items-center justify-end md:gap-9 gap-4 w-1/3'>
                     <Search onClick={toggleSearch} className="text-zinc-700 cursor-pointer md:w-[24px] w-[20px]" />

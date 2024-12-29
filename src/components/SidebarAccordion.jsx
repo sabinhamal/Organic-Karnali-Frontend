@@ -41,7 +41,7 @@ const SidebarAccordion = () => {
             {accordionData.map((item, idx) => (
                 <div key={idx} className="accordion-item">
                     <div
-                        className="accordion-header text-white p-[8px]"
+                        className="accordion-header md:text-[0.9rem] md:leading-5 text-xs text-white p-[8px]"
                         onClick={() => handleToggle(idx)}
                     >
                         <span className="accordion-title">{item.title}</span>
