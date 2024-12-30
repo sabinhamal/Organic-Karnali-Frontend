@@ -51,7 +51,7 @@ const Navbar = () => {
                 transition={fadeInUp.transition}
                 className='absolute top-6 xl:w-[75rem] lg:w-[60rem] w-full xl:px-0 px-6 rounded-full border-zinc-300 flex items-center justify-between'>
 
-                <div className='flex items-center justify-start gap-4 w-1/3 cursor-pointer' onClick={() => setToggleSidebar(!toggleSidebar)}>
+                <div className='flex items-center justify-start gap-4 md:w-1/3 cursor-pointer' onClick={() => setToggleSidebar(!toggleSidebar)}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="rotate-180" viewBox="0 0 24 24" width="26" height="26" color="black" fill="none">
                         <path d="M20 12L10 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         <path d="M20 5L4 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -59,10 +59,10 @@ const Navbar = () => {
                     </svg>
                     <h1 className="text-lg md:block hidden">Menu</h1>
                 </div>
-                <div className='w-1/3 flex items-center justify-center'>
-                    <Link to={'/'}><img src={logo} className='cursor-pointer md:w-44 w-32 brightness-75' alt="" /></Link>
+                <div className='md:w-1/3 flex items-center justify-center'>
+                    <Link to={'/'}><img src={logo} className='cursor-pointer md:w-44 w-[7rem] brightness-75' alt="" /></Link>
                 </div>
-                <div className='flex items-center justify-end md:gap-9 gap-4 w-1/3'>
+                <div className='flex items-center justify-end md:gap-9 gap-4 md:w-1/3'>
                     <Search onClick={toggleSearch} className="text-zinc-700 cursor-pointer md:w-[24px] w-[20px]" />
                     <UserRound onClick={toggleLoginModal} className="text-zinc-700 cursor-pointer md:w-[24px] w-[20px]" />
 
