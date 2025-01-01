@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../assets/logo.png'
 
 const Footer = () => {
     return (
@@ -7,7 +8,7 @@ const Footer = () => {
                 {/* Left Section */}
                 <div className="text-center md:text-left">
                     <img
-                        src="./src/assets/logo.png"
+                        src={logo}
                         alt="Organic Karnali Logo"
                         className="w-32 h-16 mx-auto md:mx-0"
                     />
