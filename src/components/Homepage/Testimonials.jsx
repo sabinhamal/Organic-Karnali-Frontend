@@ -1,14 +1,14 @@
 import { Star } from 'lucide-react';
 import React from 'react'
 import Marquee from "react-fast-marquee";
-import user1 from "../assets/Users/1.png"
-import user2 from "../assets/Users/2.png"
-import user3 from "../assets/Users/3.png"
-import user4 from "../assets/Users/4.png"
-import user5 from "../assets/Users/5.png"
-import user6 from "../assets/Users/6.png"
+import user1 from "../../assets/Users/1.png"
+import user2 from "../../assets/Users/2.png"
+import user3 from "../../assets/Users/3.png"
+import user4 from "../../assets/Users/4.png"
+import user5 from "../../assets/Users/5.png"
+import user6 from "../../assets/Users/6.png"
 import { motion } from 'framer-motion';
-import { fadeInUp } from '../utils/animations';
+import { fadeInUp } from '../../utils/animations';
 
 const Testimonials = () => {
     const testimonials = [

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { fadeInUp } from "../utils/animations";
+import { fadeInUp } from "../../utils/animations";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, ChevronDown } from "lucide-react";

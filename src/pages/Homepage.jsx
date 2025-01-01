@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useState } from 'react'
 import { ChevronRight, Heart } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { fadeInDown } from '../utils/animations.js'
@@ -7,13 +7,18 @@ import bee from "../assets/bee.png"
 import leaf from "../assets/leaf.png"
 import plant from "../assets/plant.png"
 
-const FeaturedProducts = React.lazy(() => import('../components/FeaturedProducts'));
-const HomepageAccordion = React.lazy(() => import('../components/HomepageAccordion.jsx'));
-const Testimonials = React.lazy(() => import('../components/Testimonials.jsx'));
-const Features = React.lazy(() => import('../components/Features.jsx'));
+const FeaturedProducts = React.lazy(() => import('../components/Homepage/FeaturedProducts'));
+const HomepageAccordion = React.lazy(() => import('../components/Homepage/HomepageAccordion.jsx'));
+const Testimonials = React.lazy(() => import('../components/Homepage/Testimonials.jsx'));
+const Features = React.lazy(() => import('../components/Homepage/Features.jsx'));
 
 const Homepage = () => {
     const roundedText = "100% Raw Goods - 100% Raw Goods - ";
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    const handleLoad = () => {
+        setIsLoaded(true);
+    };
 
     return (
         <div className='min-h-screen w-full flex items-start justify-center bg-[#fefefe]'>
@@ -24,7 +29,9 @@ const Homepage = () => {
                         initial={fadeInDown.initial}
                         animate={fadeInDown.animate}
                         transition={fadeInDown.transition}
-                        className='xl:w-[75rem] lg:w-[60rem] relative w-full xl:px-0 px-6 h-full flex items-center justify-between lg:mt-40 mt-20'>
+                        className='xl:w-[75rem] lg:w-[60rem] relative w-full xl:px-0 px-6 h-full flex items-center justify-between lg:mt-40 mt-20'
+                        onLoad={handleLoad}
+                    >
 
                         {/* Rotating Text */}
                         <div className='lg:block hidden absolute bottom-44 xl:left-[28rem] left-[25rem]'>
@@ -75,29 +82,29 @@ const Homepage = () => {
                                 <img src={leaf} className='object-contain' alt="" />
                             </div>
                         </div>
-
                         {/* Hero Section End  */}
+
                     </motion.div>
                 </div>
 
                 {/* Featured Products  */}
                 <Suspense fallback={<div className='w-full'>Loading...</div>} >
-                    <FeaturedProducts />
+                    {isLoaded && <FeaturedProducts />}
                 </Suspense>
 
                 {/* Features  */}
                 <Suspense fallback={<div className='w-full'>Loading...</div>} >
-                    <Features />
+                    {isLoaded && <Features />}
                 </Suspense>
 
                 {/* Accordion  */}
                 <Suspense fallback={<div className='w-full'>Loading...</div>} >
-                    <HomepageAccordion />
+                    {isLoaded && <HomepageAccordion />}
                 </Suspense>
 
                 {/* Testimonials  */}
                 <Suspense fallback={<div className='w-full'>Loading...</div>} >
-                    <Testimonials />
+                    {isLoaded && <Testimonials />}
                 </Suspense>
 
             </div >

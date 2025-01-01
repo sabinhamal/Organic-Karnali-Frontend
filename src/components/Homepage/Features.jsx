@@ -1,9 +1,9 @@
 import React from 'react'
-import globe from '../assets/globe.png'
-import wallet from '../assets/wallet.png'
-import money from '../assets/money.png'
-import secuirity from '../assets/secuirity.png'
-import { fadeInDown, fadeInUp } from '../utils/animations.js'
+import globe from '../../assets/globe.png'
+import wallet from '../../assets/wallet.png'
+import money from '../../assets/money.png'
+import secuirity from '../../assets/secuirity.png'
+import { fadeInDown, fadeInUp } from '../../utils/animations.js'
 import { motion } from 'framer-motion'
 
 const Features = () => {

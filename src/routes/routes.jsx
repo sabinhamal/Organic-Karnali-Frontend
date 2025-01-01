@@ -3,6 +3,8 @@ import React from 'react'
 import Homepage from "../pages/Homepage";
 import Navbar from "../components/Navbar";
 import Contact from "../pages/Contact";
+import Product from "../pages/Product";
+import NotFound from "../pages/Not Found";
 
 const routes = () => {
     return (
@@ -11,6 +13,8 @@ const routes = () => {
             <Routes>
                 <Route path="/" element={<Homepage />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/product/:id" element={<Product />} />
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </Router>
     )
