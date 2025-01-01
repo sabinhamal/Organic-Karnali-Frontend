@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 const ImageCarousel = () => {
     const { products } = useProductContext();
-
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const getItemsPerPage = () => {
@@ -28,11 +27,21 @@ const ImageCarousel = () => {
     }, []);
 
     const nextSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + itemsPerPage >= products.length ? 0 : prevIndex + itemsPerPage));
+        setCurrentIndex((prevIndex) => {
+            if (prevIndex + itemsPerPage >= products.length) {
+                return 0; // Loop back to start
+            }
+            return prevIndex + itemsPerPage;
+        });
     };
 
     const prevSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex === 0 ? products.length - itemsPerPage : prevIndex - itemsPerPage));
+        setCurrentIndex((prevIndex) => {
+            if (prevIndex === 0) {
+                return products.length - itemsPerPage; // Loop back to the end
+            }
+            return prevIndex - itemsPerPage;
+        });
     };
 
     return (
@@ -59,9 +68,31 @@ const ImageCarousel = () => {
                     className="flex transition-transform duration-500 ease-in-out w-full"
                     style={{ transform: `translateX(-${currentIndex * (100 / itemsPerPage)}%)` }}
                 >
+                    {/* Duplicate the first few products at the end for infinite scrolling effect */}
+                    {products.slice(0, itemsPerPage).map((product, index) => (
+                        <Link
+                            key={`duplicated-${index}`}
+                            to={`/product/${encodeURIComponent(product.name)}`}
+                            className="w-full sm:w-1/2 lg:w-1/3 p-4 flex-shrink-0"
+                        >
+                            <div className="bg-white rounded-lg p-4">
+                                <img
+                                    src={product.image}
+                                    alt={product.name}
+                                    className="rounded-lg object-cover w-full h-48 mb-4"
+                                />
+                                <h3 className="text-lg font-semibold">{product.name}</h3>
+                                <p className="text-gray-600">Rs. {product.price}</p>
+                                <div className="text-yellow-500">{"★".repeat(product.rating)}</div>
+                            </div>
+                        </Link>
+                    ))}
+
+                    {/* Original products */}
                     {products.map((product, index) => (
-                        <Link to={`/product/${encodeURIComponent(product.name)}`}
+                        <Link
                             key={index}
+                            to={`/product/${encodeURIComponent(product.name)}`}
                             className="w-full sm:w-1/2 lg:w-1/3 p-4 flex-shrink-0"
                         >
                             <div className="bg-white rounded-lg p-4">
@@ -83,4 +114,3 @@ const ImageCarousel = () => {
 };
 
 export default ImageCarousel;
-

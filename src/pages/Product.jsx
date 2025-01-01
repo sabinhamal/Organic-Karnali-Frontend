@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useLocation, useParams } from 'react-router-dom'
 import { useProductContext } from '../context/ProductContext'
 import { IconStar, IconStarHalf } from '@tabler/icons-react';
 import { ShoppingCart } from 'lucide-react'
 import ImageCarousel from '../components/Product/ImageCarousel';
 
 const Product = () => {
+    const location = useLocation();
     const { id } = useParams();
     const productName = decodeURIComponent(id);
     const { products } = useProductContext();
@@ -25,6 +26,11 @@ const Product = () => {
     const totalStars = 5;
 
     const [productCount, setProductCount] = useState(1)
+
+    //reset scroll to top
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [location])
 
     return (
         <div className='w-full flex items-center justify-center md:mt-40 mt-24'>

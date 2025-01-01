@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import { ChevronRight, Heart } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { fadeInDown } from '../utils/animations.js'
@@ -6,6 +6,7 @@ import heroImage from "../assets/hero-image.png"
 import bee from "../assets/bee.png"
 import leaf from "../assets/leaf.png"
 import plant from "../assets/plant.png"
+import { useLocation } from 'react-router-dom'
 
 const FeaturedProducts = React.lazy(() => import('../components/Homepage/FeaturedProducts'));
 const HomepageAccordion = React.lazy(() => import('../components/Homepage/HomepageAccordion.jsx'));
@@ -15,10 +16,16 @@ const Features = React.lazy(() => import('../components/Homepage/Features.jsx'))
 const Homepage = () => {
     const roundedText = "100% Raw Goods - 100% Raw Goods - ";
     const [isLoaded, setIsLoaded] = useState(false);
+    const location = useLocation();
 
     const handleLoad = () => {
         setIsLoaded(true);
     };
+
+    //reset scroll to top
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [location])
 
     return (
         <div className='min-h-screen w-full flex items-start justify-center bg-[#fefefe]'>

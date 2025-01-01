@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import butterfly from '../assets/butterfly.jpg'
 import { ChevronRightIcon, FacebookIcon, Instagram, Twitter, Youtube } from 'lucide-react'
 import { fadeInDown, fadeInUp } from '../utils/animations'
 import { motion } from 'framer-motion'
+import { useLocation } from 'react-router-dom'
 
 const Contact = () => {
+    const location = useLocation();
+    //reset scroll to top
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [location])
+
     return (
         <div className='min-h-screen w-full flex items-start justify-center bg-[#fefefe]'>
             <div className='xl:w-[75rem] lg:w-[60rem] pb-[7rem] w-full xl:px-0 px-6 h-full items-center justify-between mt-40'>
