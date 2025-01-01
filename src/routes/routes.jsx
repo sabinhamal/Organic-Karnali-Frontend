@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import Contact from "../pages/Contact";
 import Product from "../pages/Product";
 import NotFound from "../pages/Not Found";
+import Footer from "../components/Footer";
 
 const routes = () => {
     return (
@@ -16,6 +17,7 @@ const routes = () => {
                 <Route path="/product/:id" element={<Product />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
+            <Footer />
         </Router>
     )
 }
