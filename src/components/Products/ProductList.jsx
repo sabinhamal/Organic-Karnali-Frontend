@@ -23,7 +23,7 @@ const ProductList = ({ categoryId }) => {
         ]
 
     return (
-        <div className='w-full min-h-screen flex items-center justify-center bg-gradient-to-t to-[#fff8f3] from-[#fefefe]'>
+        <div className='w-full min-h-screen flex items-center justify-center'>
             <div className="flex flex-col items-start gap-12 xl:w-[75rem] lg:w-[60rem] w-full xl:px-0 px-6 md:py-[5rem]">
                 <motion.div
                     initial={fadeInDown.initial}
