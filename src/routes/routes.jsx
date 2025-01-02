@@ -1,24 +1,38 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React from 'react'
-import Homepage from "../pages/Homepage";
-import Navbar from "../components/Navbar";
-import Contact from "../pages/Contact";
-import Product from "../pages/Product";
-import NotFound from "../pages/Not Found";
-import Footer from "../components/Footer";
+import React, { Suspense } from 'react'
+const Homepage = React.lazy(() => import("../pages/Homepage"))
+const Navbar = React.lazy(() => import("../components/Navbar"))
+const Contact = React.lazy(() => import("../pages/Contact"))
+import Product from "../pages/Product"
+const NotFound = React.lazy(() => import("../pages/Not Found"))
+const Footer = React.lazy(() => import("../components/Footer"))
+import 'ldrs/ring'
+import { treadmill } from 'ldrs'
 
 const routes = () => {
+    treadmill.register()
     return (
         <Router>
-            <Navbar />
-            <Routes>
-                <Route path="/" element={<Homepage />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/product/:id" element={<Product />} />
-                <Route path="*" element={<NotFound />} />
-            </Routes>
-            <Footer />
-        </Router>
+            {/* Loading Animation */}
+            <Suspense fallback={
+                <div className="flex items-center justify-center h-screen w-full">
+                    <l-treadmill
+                        size="70"
+                        speed="1.25"
+                        color="black"
+                    ></l-treadmill>
+                </div>
+            }>
+                <Navbar />
+                <Routes>
+                    <Route index path="/" element={<Homepage />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/product/:id" element={<Product />} />
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
+                <Footer />
+            </Suspense >
+        </Router >
     )
 }
 
