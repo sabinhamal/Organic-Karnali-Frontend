@@ -21,6 +21,7 @@ const Sidebar = ({ toggleSidebar, setToggleSidebar }) => {
 
                 <div className='flex flex-col items-start gap-12 w-full border-[1px] border-t-[#c5c5c54a] border-l-0 border-r-0 border-b-0 md:p-16 p-6'>
                     <div className="h-[1px] w-full"></div>
+                    <Link to={'/products'}>Products</Link>
                     <Link to={'/about'}>About</Link>
                     <Link to={'/contact'}>Contact Us</Link>
                     <Link to={'/login'}>Login</Link>

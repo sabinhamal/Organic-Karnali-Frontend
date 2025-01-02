@@ -7,6 +7,8 @@ import bee from "../assets/bee.png"
 import leaf from "../assets/leaf.png"
 import plant from "../assets/plant.png"
 import { useLocation } from 'react-router-dom'
+import 'ldrs/ring'
+import { treadmill } from 'ldrs'
 
 const FeaturedProducts = React.lazy(() => import('../components/Homepage/FeaturedProducts'));
 const HomepageAccordion = React.lazy(() => import('../components/Homepage/HomepageAccordion.jsx'));
@@ -14,6 +16,7 @@ const Testimonials = React.lazy(() => import('../components/Homepage/Testimonial
 const Features = React.lazy(() => import('../components/Homepage/Features.jsx'));
 
 const Homepage = () => {
+    treadmill.register() //loader
     const roundedText = "100% Raw Goods - 100% Raw Goods - ";
     const [isLoaded, setIsLoaded] = useState(false);
     const location = useLocation();
@@ -95,22 +98,58 @@ const Homepage = () => {
                 </div>
 
                 {/* Featured Products  */}
-                <Suspense fallback={<div className='w-full'>Loading...</div>} >
+                <Suspense fallback={
+                    <div className="flex items-center justify-center h-screen w-full">
+                        {/* Loading Animation  */}
+                        <l-treadmill
+                            size="70"
+                            speed="1.25"
+                            color="black"
+                        ></l-treadmill>
+                    </div>
+                }>
                     {isLoaded && <FeaturedProducts />}
                 </Suspense>
 
                 {/* Features  */}
-                <Suspense fallback={<div className='w-full'>Loading...</div>} >
+                <Suspense fallback={
+                    <div className="flex items-center justify-center h-screen w-full">
+                        {/* Loading Animation  */}
+                        <l-treadmill
+                            size="70"
+                            speed="1.25"
+                            color="black"
+                        ></l-treadmill>
+                    </div>
+                }>
                     {isLoaded && <Features />}
                 </Suspense>
 
                 {/* Accordion  */}
-                <Suspense fallback={<div className='w-full'>Loading...</div>} >
+                <Suspense fallback={
+                    <div className="flex items-center justify-center h-screen w-full">
+                        {/* Loading Animation  */}
+                        <l-treadmill
+                            size="70"
+                            speed="1.25"
+                            color="black"
+                        ></l-treadmill>
+                    </div>
+                }>
                     {isLoaded && <HomepageAccordion />}
                 </Suspense>
 
                 {/* Testimonials  */}
-                <Suspense fallback={<div className='w-full'>Loading...</div>} >
+                <Suspense fallback={
+                    <div className="flex items-center justify-center h-screen w-full">
+                        {/* Loading Animation  */}
+                        <l-treadmill
+                            size="70"
+                            speed="1.25"
+                            color="black"
+                        ></l-treadmill>
+                    </div>
+                }>
                     {isLoaded && <Testimonials />}
                 </Suspense>
 
